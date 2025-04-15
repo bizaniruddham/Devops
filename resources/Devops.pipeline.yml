@@ -1,0 +1,13 @@
+# The main pipeline for Devops
+resources:
+  pipelines:
+    Devops_pipeline:
+      name: Devops_pipeline
+      catalog: bizmetric_databricks_learning
+      schema: Devops_${bundle.target}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
